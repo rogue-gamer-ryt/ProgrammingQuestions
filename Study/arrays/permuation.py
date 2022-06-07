@@ -6,15 +6,18 @@
 # the array (b,c,a,d).
 # Given an array A of n elements and a permutation P, apply P to A.
 
+
 def apply_permutations(A, P):
-    # B = [None for _ in range(len(A))]
-
-    # for i, permutation in enumerate(P):
-    #     B[permutation] = A[i]
-    # return B
-    
-    for i, element in enumerate(A):
-        A[i], A[P[i]] = A[P[i]], A[i]
-
+    for i in range(len(A)):
+        next = i
+        while P[next] >= 0 A:{A}")
+            A[i], A[P[next]] = A[P[next]], A[i]
+            temp = P[next]
+            P[next] -=
+  # en(A)
+            next = temp
+    P[:] = [a + len(P) for a in P]
     return A
-print(apply_permutations(A=['a','b','c','d'], P = [2,0,1,3]))
+
+
+print(apply_permutations(A=['a', 'b', 'c', 'd'], P=[2, 0, 1, 3]))

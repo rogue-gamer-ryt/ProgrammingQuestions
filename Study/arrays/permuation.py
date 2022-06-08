@@ -10,11 +10,10 @@
 def apply_permutations(A, P):
     for i in range(len(A)):
         next = i
-        while P[next] >= 0 A:{A}")
+        while P[next] >= 0:
             A[i], A[P[next]] = A[P[next]], A[i]
             temp = P[next]
-            P[next] -=
-  # en(A)
+            P[next] -= len(A)
             next = temp
     P[:] = [a + len(P) for a in P]
     return A

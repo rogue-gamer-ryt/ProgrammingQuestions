@@ -20,19 +20,46 @@ The general algorithm for computing the next permutation is as follows:
 (3.) Swap p[l] and p[k] (note that the sequence after position k remains in decreasing order).
 (4.) Reverse the sequence after position k.
 """
-def get_next_permuation(p):
-  inversion_point = len(p) - 2
-  while inversion_point >= 0 and p[inversion_point] >= p[inversion_point + 1]: # check for decreasing 
-    inversion_point -= 1
-  if inversion_point == -1:
-    return []
-    
-  for i in reversed(range(inversion_point + 1, len(p))):
-    if p[i] > p[inversion_point]:
-      p[inversion_point], p[i] = p[i], p[inversion_point]
-      break
 
-  p[inversion_point + 1:] = reversed(p[inversion_point + 1:])
-  return p
-  
-assert get_next_permuation([1,0,3,2]) == [1,2,0,3]
+
+def get_next_permuation(p):
+  # Find the first entry from the right that is smaller than the entry just after it
+    inversion_point = len(p) - 2
+    while inversion_point >= 0 and p[inversion_point] >= p[
+            inversion_point + 1]:  # check for decreasing
+        inversion_point -= 1
+    if inversion_point == -1:
+        return []
+# Swap the smallest entry index inversion point which is greater than p[inversion_point]. We will search in reverse order so the first entry we find which staisfys the condition. That should be the min amoungst the suffix which staisfys 
+    for i in reversed(range(inversion_point + 1, len(p))):
+        if p[i] > p[inversion_point]:
+            p[inversion_point], p[i] = p[i], p[inversion_point]
+            break
+# Just making the suffix from the decreasing to increasing
+    p[inversion_point + 1:] = reversed(p[inversion_point + 1:])
+    return p
+
+
+assert get_next_permuation([1, 0, 3, 2]) == [1, 2, 0, 3]
+
+def get_prev_permuation(p):
+  # Find the first entry from the right that is smaller than the entry just after it
+    inversion_point = len(p) - 2
+    while inversion_point >= 0 and p[inversion_point] <= p[inversion_point +1]:  # check for increasing
+        inversion_point -= 1
+    if inversion_point <= 0:
+        return []
+    print(inversion_point)
+# Swap the smallest entry index inversion point which is greater than p[inversion_point]. We will search in reverse order so the first entry we find which staisfys the condition. That should be the min amoungst the suffix which staisfys 
+    for i in reversed(range(inversion_point + 1, len(p))):
+      if p[i] < p[inversion_point]:
+          p[inversion_point], p[i] = p[i], p[inversion_point]
+          break
+# Just making the suffix from the decreasing to increasing
+    p[inversion_point + 1:] = reversed(p[inversion_point + 1:])
+    return p
+assert get_prev_permuation([1, 0, 3, 2]) == [1, 0, 2, 3]
+assert get_prev_permuation([4,3,2,1]) == [4, 3, 1, 2]
+assert get_prev_permuation([6,2,1,5,4,3,0]) == [6,2,1,5,4,0,3]
+
+print(get_prev_permuation([6,2,1,5,4,0,3]))

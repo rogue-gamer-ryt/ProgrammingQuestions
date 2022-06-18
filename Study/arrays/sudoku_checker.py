@@ -5,6 +5,7 @@ indicates that entry is blank; every other entry is in [1,9].
 Hint: Directly test the constraints. Use an array to encode sets.
 """
 import math
+
 def is_valid_sudoku(partial_assignment):
     # Return True if subarray
     # partial_assingnment[start_row:end_row][start_col:end:col] contains

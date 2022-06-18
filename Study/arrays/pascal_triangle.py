@@ -3,6 +3,8 @@ Write a program which takes as input a nonnegative integer n and returns the fir
 triangle.
 """
 
+# Time complexity - O(1 + 2 + ... + n) => O(n(n+1)/2) => O(n2)
+# Space complexity - O(n2)
 def generate_pascal_triangle(n):
     # Store traingle as a left aligned array
     # 1

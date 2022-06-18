@@ -81,7 +81,7 @@ def generate_spiral_matrix_from_order(d):
     direction = x = y = 0
 
     for i in range(d**2):
-        square_matrix[x][y] = i+1
+        square_matrix[x][y] = i + 1
 
         next_x, next_y = x + SHIFT[direction][0], y + SHIFT[direction][1]
         if (next_x not in range(d)

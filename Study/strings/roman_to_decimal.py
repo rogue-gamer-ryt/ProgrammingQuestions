@@ -19,6 +19,8 @@ import functools
 # i = 1, value = 9 (1 < 10; value - 1)
 # i = 0, value = 59
 
+
+# Time complexity - O(n)
 def roman_to_integer(s):
     T = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
 

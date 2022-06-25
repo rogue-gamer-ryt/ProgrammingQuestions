@@ -8,7 +8,7 @@ that each node stores the number of nodes in the subtree rooted at that node.
 # in the left sub tree entirely cause 7 < 10 (L < k). The element should e (k - L)th node if
 # we skip the left subtree entirely
 
-# Time complexity - O(n)
+# Time complexity - O(h)
 # Space complexity - O(1)
 def find_kth_node_binary_tree(tree, k):
     while tree:

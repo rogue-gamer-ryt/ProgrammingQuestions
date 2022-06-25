@@ -6,6 +6,8 @@ program to reconstruct the tree. Assume each node has a unique key.
 # Split the inorder into left subtree an right subtree
 # Further split them by taking the individual subtree info from preorder
 
+# Time Complexity - O(n)
+# Space Complexity - O(n + h)
 def binary_tree_from_preorder_inorder(preorder, inorder):
     node_to_inorder_idx = {data: i for i, data in enumerate(inorder)}
 

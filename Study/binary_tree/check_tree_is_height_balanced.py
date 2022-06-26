@@ -36,3 +36,37 @@ def is_balanced_binary_tree(tree):
         return BalancedStatusWithHeight(is_balanced, height)
     
     return check_balanced(tree).balanced
+
+# More readable
+
+# This is an input class. Do not edit.
+class BinaryTree:
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+
+class NodeInfo:
+    def __init__(self, is_balanced = True, height = -1):
+        self.is_balanced = is_balanced
+        self.height = height
+        
+def check_if_tree_is_balanced(node):
+    if not node:
+        return NodeInfo(True, -1)
+
+    left_tree_info = check_if_tree_is_balanced(node.left)
+    right_tree_info = check_if_tree_is_balanced(node.right)
+        
+    is_balanced = (
+        abs(left_tree_info.height - right_tree_info.height) <= 1 
+        and left_tree_info.is_balanced 
+        and right_tree_info.is_balanced
+    )
+    height = max(left_tree_info.height, right_tree_info.height) + 1
+
+    return NodeInfo(is_balanced, height)
+    
+
+def heightBalancedBinaryTree(tree):
+    return check_if_tree_is_balanced(tree).is_balanced

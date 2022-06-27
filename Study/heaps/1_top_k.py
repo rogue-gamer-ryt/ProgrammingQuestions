@@ -11,6 +11,7 @@ the string to be evicted when a longer string is to be added is the shortest one
 import itertools
 import heapq
 
+# time - O(nlogk) - At the any time the length of min_heap is k
 def top_k(stream, k):
     # Create a min heap - as an array
     min_heap = [(len(s), s) for s in itertools.islice(stream, k)]

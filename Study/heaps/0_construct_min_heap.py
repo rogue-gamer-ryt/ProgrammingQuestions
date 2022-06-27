@@ -60,3 +60,8 @@ class MinHeap:
         # Write your code here.
         self.heap.append(value)
         self.siftUp(len(self.heap) - 1, 0, self.heap)
+
+minHeap = MinHeap([48, 12, 24, 7, 8, -5, 24, 391, 24, 56, 2, 6, 8, 41])
+assert minHeap.heap == [-5, 2, 6, 7, 8, 8, 24, 391, 24, 56, 12, 24, 48, 41]
+minHeap.insert(76)
+assert minHeap.heap == [-5, 2, 6, 7, 8, 8, 24, 391, 24, 56, 12, 24, 48, 41, 76]

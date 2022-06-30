@@ -1,6 +1,6 @@
 """
-Given two nodes in a binary tree, design an algorithm that computes their LCA. Assume that each
-node has a parent pointer.
+Given two nodes in a binary tree, design an algorithm that computes their Least Common Ancestor. 
+Assume that each node has a parent pointer.
 """
 
 # If both the nodes are at the same depth, we traverse UP using the parent and stop 

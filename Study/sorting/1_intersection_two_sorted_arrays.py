@@ -35,5 +35,3 @@ def intersect_two_sorted_arrays(A, B):
         else:
             j += 1
     return intersection_A_B
-
-

@@ -1,5 +1,5 @@
 """
-Any two nodes in a binary tree have a corunon ancestor, namely the root. The lowest corunon
+Any two nodes in a binary tree have a common ancestor, namely the root. The lowest common
 ancestor (LCA) of any two nodes in a binary tree is the node furthest from the root that is an ancestor
 of both nodes.
 

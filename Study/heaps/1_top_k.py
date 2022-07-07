@@ -6,7 +6,8 @@ strings.
 As we Process the input, we want to track the k longest strings seen so far. Out of these k strings,
 the string to be evicted when a longer string is to be added is the shortest one.
 """
-# We will use min heap as then removal of the min elment would only take log(n) and the remaining elements would be the maximum elements from the stream
+# We will use min heap as then removal of the min elment would only take log(n) and 
+# the remaining elements would be the maximum elements from the stream
 
 import itertools
 import heapq

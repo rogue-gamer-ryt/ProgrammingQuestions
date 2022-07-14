@@ -28,4 +28,4 @@ def maximum_revenue(coins):
     maximum_revenue_for_range = [[0] * len(coins) for _ in coins]
     return compute_maximum_revenue_for_range(0, len(coins) - 1)
 
-print(maximum_revenue([1,2,3,4,5]))
+assert maximum_revenue([5,25,10,1]) == 26

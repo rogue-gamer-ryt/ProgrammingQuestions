@@ -2,6 +2,8 @@
 Given a singly linked list and an integer k, write a program to remove the kth last element from the
 list. Your algorithm cannot use more than a few words of storage, regardless of the length of the
 list. In particulaq, you cannot assume that it is possible to record the length of the list.
+
+Link: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 """
 
 class ListNode:

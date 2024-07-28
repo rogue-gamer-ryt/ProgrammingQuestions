@@ -8,7 +8,7 @@ largest elements stored in the max-heap. You cannot modify the heap
 
 """
 
-# Create another max-heap (candidates) which stores the indexs of the elments to process next
+# Create another max-heap (candidates) which stores the indexs of the elements to process next
 # We start from the root (viz. the largest element) and then get the max of its child and push that into 
 # the newheap
 

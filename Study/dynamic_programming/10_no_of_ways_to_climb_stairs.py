@@ -1,5 +1,5 @@
 """
-Write a program which takes as inputs n andk and retums the number of ways in which you can
+Write a program which takes as inputs n and k and returns the number of ways in which you can
 get to your destination. For example, if n = 4 and k = 2, there are five ways in which to get to the
 destination:
 

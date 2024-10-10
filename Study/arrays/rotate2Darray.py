@@ -22,6 +22,28 @@ def rotate_matrix(square_matrix):
                 )
     return square_matrix
 
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        l, r = 0, len(matrix) - 1
+        while l < r:
+            for i in range(r - l):
+                top, bottom = l, r
+                topLeft = matrix[top][l + i]
+                # Bottom Left -> Top Left
+                matrix[top][l + i] = matrix[bottom - i][l]
+                # Bottom Right -> Bottom Left
+                matrix[bottom - i][l] = matrix[bottom][r - i]
+                # Top Right -> Bottom Right
+                matrix[bottom][r -i] = matrix[top + i][r]
+                # Top Left -> Top Right
+                matrix[top + i][r] = topLeft
+            l += 1
+            r -= 1
+
+
 assert rotate_matrix([
         [1,2,3],
         [4,5,6],

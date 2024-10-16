@@ -14,6 +14,29 @@ Explanation: "a" does not match the entire string "aa".
 
 Link: https://leetcode.com/problems/regular-expression-matching/
 """
+
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+
+        # Add whitespace since dp would be (1 + len(s)) * (1 + len(p))
+        s, p = ' ' + s, ' ' + p
+        lenS, lenP = len(s), len(p)
+        dp = [[False] * lenP for _ in range(lenS)]
+        dp[0][0] = True
+
+        for col in range(1, lenP):
+            if p[col] == "*":
+                dp[0][col] = dp[0][col - 2]
+
+        for r in range(1, lenS):
+            for c in range(1, lenP):
+                if p[c] in {s[r], '.'}:
+                    dp[r][c] = dp[r - 1][c - 1]
+                elif p[c] == "*":
+                    dp[r][c] = dp[r][c - 2] or (dp[r - 1][c] and p[c - 1] in {s[r], '.'})
+        return dp[-1][-1]
+
+
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         cache = {}

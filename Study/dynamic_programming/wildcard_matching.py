@@ -5,8 +5,6 @@ Given an input string (s) and a pattern (p), implement wildcard pattern matching
 '*' Matches any sequence of characters (including the empty sequence).
 The matching should cover the entire input string (not partial).
 
-
-
 Example 1:
 
 Input: s = "aa", p = "a"

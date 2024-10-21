@@ -24,3 +24,22 @@ def clone_graph(G):
                 q.append(e)
             vertex_map[v].edges.append(vertex_map[e])
     return vertex_map[G]
+
+def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
+    if not node:
+        return
+    oldToNew = {}
+    q = collections.deque()
+    q.append(node)
+    oldToNew[node] = Node(node.val)
+
+    while q:
+        cur_node = q.popleft()
+
+        for neighbor in cur_node.neighbors:
+            if neighbor not in oldToNew:
+                oldToNew[neighbor] = Node(neighbor.val)
+                q.append(neighbor)
+            oldToNew[cur_node].neighbors.append(oldToNew[neighbor])
+
+    return oldToNew[node]

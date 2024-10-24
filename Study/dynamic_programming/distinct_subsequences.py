@@ -17,15 +17,16 @@ Link: https://leetcode.com/problems/distinct-subsequences/
 """
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
-        dp = [[0 for _ in range(len(t) + 1)] for _ in range(len(s) + 1)]
-        for i in range(len(s) + 1):
-            dp[i][len(t)] = 1
+        s, t = " " + s, " " + t
+        dp = [[0 for _ in range(len(t))] for _ in range(len(s))]
 
-        for i in range(len(s) - 1, -1, -1):
-            for j in range(len(t) - 1, -1, -1):
+        for r in range(len(s)):
+            dp[r][0] = 1
+        for i in range(len(s)):
+            for j in range(len(t)):
                 if s[i] == t[j]:
-                    dp[i][j] = dp[i + 1][j] + dp[i + 1][j + 1]
+                    dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j]
                 else:
-                    dp[i][j] = dp[i + 1][j]
+                    dp[i][j] = dp[i - 1][j]
+        return dp[-1][-1]
 
-        return dp[0][0]

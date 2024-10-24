@@ -37,3 +37,21 @@ class Solution:
                 if j < len(s2) and s2[j] == s3[i + j] and dp[i][j + 1]:
                     dp[i][j] = True
         return dp[0][0]
+
+class Solution:
+    def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
+        if len(s1) + len(s2) != len(s3):
+            return False
+        s1 = " " + s1
+        s2 = " " + s2
+        s3 = " " + s3
+        dp = [[False for _ in range(len(s2))] for _ in range(len(s1))]
+        dp[0][0] = True
+        for i in range(len(s1)):
+            for j in range(len(s2)):
+                if i > 0 and s1[i] == s3[i + j] and dp[i - 1][j]:
+                    dp[i][j] = True
+                if j > 0 and s2[j] == s3[i + j] and dp[i][j - 1]:
+                    dp[i][j] = True
+
+        return dp[-1][-1]

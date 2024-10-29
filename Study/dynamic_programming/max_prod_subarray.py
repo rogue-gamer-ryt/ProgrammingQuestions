@@ -15,10 +15,9 @@ class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         res = max(nums)
         curMax, curMin = 1, 1
-
         for n in nums:
-            prevCurMax = curMax
-            curMax = max(n * curMax, n * curMin, n)
-            curMin = min(n * prevCurMax, n * curMin, n)
+            newMax = max(n * curMax, n * curMin, n)
+            newMin = min(n * curMax, n * curMin, n)
+            curMax, curMin = newMax, newMin
             res = max(res, curMax)
         return res

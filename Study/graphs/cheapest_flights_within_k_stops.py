@@ -18,6 +18,9 @@ Link: https://leetcode.com/problems/cheapest-flights-within-k-stops/
 """
 
 
+# Bellman Ford Algorithm
+# TC: O(n+(m∗k)), SC: O(n)
+# Where n is the number of flights, m is the number of edges and k is the number of stops.
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
         prices = [float("inf")] * n
@@ -33,3 +36,32 @@ class Solution:
             prices = tmpPrices
 
         return -1 if prices[dst] == float("inf") else prices[dst]
+
+# Shortest Path
+# TC: O(n∗k), SC: O(n + m)
+class Solution:
+    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
+        adj = collections.defaultdict(list)
+        prices = [float("inf")] * n
+        prices[src] = 0
+
+        for u, v, cost in flights:
+            adj[u].append([v, cost])
+
+        q = deque([(0, src, 0)])  # (cost, source, stops)
+
+        while q:
+            cost, node, stops = q.popleft()
+            if stops > k:
+                # We will continue as it is possible there would be a node
+                # in the queue that has more cost but fewer stops
+                continue
+
+            for nei, neiCost in adj[node]:
+                nextCost = neiCost + cost
+                if nextCost < prices[nei]:
+                    prices[nei] = nextCost
+                    q.append((nextCost, nei, stops + 1))
+
+        return prices[dst] if prices[dst] != float('inf') else -1
+
